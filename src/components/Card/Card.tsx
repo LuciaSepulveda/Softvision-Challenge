@@ -13,6 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react"
 import {motion} from "framer-motion"
+import {useMediaQuery} from "react-responsive"
 
 import {Candidate} from "../../types/candidate"
 import {
@@ -38,6 +39,7 @@ const Card: React.FC<Props> = ({candidates, title}) => {
   const [comment, setComment] = React.useState<string>("")
   const [error, setError] = React.useState<string>("")
   const [id, setId] = React.useState<string>("")
+  const isTabletOrMobile = useMediaQuery({maxWidth: 1024})
 
   const prevStep = usePrevStep()
   const nextStep = useNextStep()
@@ -154,12 +156,14 @@ const Card: React.FC<Props> = ({candidates, title}) => {
                     <HStack>
                       {title !== "Entrevista inicial" && (
                         <Button bg={bg} onClick={() => prevStep(candidate.step, candidate)}>
-                          {"<"}
+                          {isTabletOrMobile && "˄"}
+                          {!isTabletOrMobile && "<"}
                         </Button>
                       )}
                       {title !== "Rechazo" && (
                         <Button bg={bg} onClick={() => nextStep(candidate.step, candidate)}>
-                          {">"}
+                          {!isTabletOrMobile && ">"}
+                          {isTabletOrMobile && "˅"}
                         </Button>
                       )}
                     </HStack>
