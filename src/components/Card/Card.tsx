@@ -144,11 +144,11 @@ const Card: React.FC<Props> = ({candidates, title}) => {
                   <Stack
                     borderBottomRadius="md"
                     direction={["column", null, "row"]}
-                    h={["100%", null, "50px"]}
+                    h="100%"
                     p={2}
                     w="100%"
                   >
-                    <Text align="left" ml={2} overflow="hidden" w="100%">
+                    <Text align="left" ml={2} w="100%">
                       {candidate.comments}
                     </Text>
                     <HStack>
