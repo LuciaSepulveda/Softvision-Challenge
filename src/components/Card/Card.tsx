@@ -1,6 +1,8 @@
 import React from "react"
 import {
+  Box,
   Button,
+  Center,
   Circle,
   Divider,
   HStack,
@@ -126,9 +128,16 @@ const Card: React.FC<Props> = ({candidates, title}) => {
                       {candidate.name}
                     </Text>
                     {!candidateJson(candidate.id) && (
-                      <Button bg={bg} onClick={() => deleteCandidate(candidate.id)}>
-                        x
-                      </Button>
+                      <Center
+                        as="button"
+                        bg={bgButton}
+                        h={5}
+                        m="auto"
+                        p={1}
+                        onClick={() => deleteCandidate(candidate.id)}
+                      >
+                        X
+                      </Center>
                     )}
                   </HStack>
                   <Divider bg={bg} m="auto" w="90%" />
