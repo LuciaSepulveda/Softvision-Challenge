@@ -71,6 +71,7 @@ const Card: React.FC<Props> = ({candidates, title}) => {
       setName("")
       setComment("")
       setId("")
+      setError("")
     } else {
       if (id === "" && name !== "") {
         setError("El candidato tiene que tener un id")
